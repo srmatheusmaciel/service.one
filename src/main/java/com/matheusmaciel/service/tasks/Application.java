@@ -1,4 +1,4 @@
-package com.matheusmaciel.service.one;
+package com.matheusmaciel.service.tasks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
