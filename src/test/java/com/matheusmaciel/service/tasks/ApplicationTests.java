@@ -1,4 +1,4 @@
-package com.matheusmaciel.service.one;
+package com.matheusmaciel.service.tasks;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
