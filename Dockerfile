@@ -12,6 +12,6 @@ FROM amazoncorretto:21
 WORKDIR /app  
 COPY --from=build /app/target/service.tasks-0.0.1-SNAPSHOT.jar /app/app.jar  
 
-EXPOSE 8888  
+EXPOSE 8881  
 
 CMD ["java", "-jar", "app.jar"]  
