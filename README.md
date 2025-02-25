@@ -119,15 +119,23 @@ mvn test
 ### Docker
 
 ```dockerfile
-FROM eclipse-temurin:21-jdk
+FROM maven:3.9.6-amazoncorretto-21-debian AS build  
 
-WORKDIR /app
+COPY src /app/src  
+COPY pom.xml /app  
 
-COPY target/service.tasks-0.0.1-SNAPSHOT.jar app.jar
+WORKDIR /app  
+RUN mvn clean install -DskipTests
 
-EXPOSE 8080
+# Etapa final (imagem menor para rodar o app)
+FROM amazoncorretto:21  
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+WORKDIR /app  
+COPY --from=build /app/target/service.notification-0.0.1-SNAPSHOT.jar /app/app.jar  
+
+EXPOSE 8882  
+
+CMD ["java", "-jar", "app.jar"]  
 ```
 
 
